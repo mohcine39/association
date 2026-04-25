@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { scrapeFacebookEvents } from '@/lib/scraper';
 import { prisma } from '@/lib/prisma';
 
+export const dynamic = 'force-dynamic';
+
 const FB_PAGE_URL = 'https://www.facebook.com/profile.php?id=100063546733917';
 
 export async function POST(request: Request) {
