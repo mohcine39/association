@@ -1,10 +1,11 @@
 import EventCard from '@/components/EventCard';
-import { prisma } from '@/lib/prisma';
+import { getPrisma } from '@/lib/prisma';
 
 export const dynamic = 'force-dynamic';
 
 async function getEvents() {
   try {
+    const prisma = getPrisma();
     const events = await prisma.event.findMany({
       where: { isPublished: true },
       orderBy: { createdAt: 'desc' },

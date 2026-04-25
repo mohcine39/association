@@ -2,12 +2,13 @@ import Hero from '@/components/Hero';
 import EventCard from '@/components/EventCard';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
-import { prisma } from '@/lib/prisma';
+import { getPrisma } from '@/lib/prisma';
 
 export const dynamic = 'force-dynamic';
 
 async function getLatestEvents() {
   try {
+    const prisma = getPrisma();
     const events = await prisma.event.findMany({
       where: { isPublished: true },
       orderBy: { createdAt: 'desc' },

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
+import { getPrisma } from '@/lib/prisma';
 
 export const dynamic = 'force-dynamic';
 
@@ -9,6 +9,7 @@ export async function GET(request: Request) {
   const publishedOnly = searchParams.get('published') !== 'false';
 
   try {
+    const prisma = getPrisma();
     const events = await prisma.event.findMany({
       where: publishedOnly ? { isPublished: true } : {},
       orderBy: { createdAt: 'desc' },
@@ -29,6 +30,7 @@ export async function POST(request: Request) {
     // Extract only the fields we want to save
     const { title, description, date, location, imageUrl, isPublished } = data;
 
+    const prisma = getPrisma();
     const event = await prisma.event.create({
       data: {
         title: title || 'بدون عنوان',

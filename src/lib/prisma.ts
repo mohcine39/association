@@ -7,10 +7,16 @@ if (!process.env.DATABASE_URL) {
 
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
-export const prisma =
-  globalForPrisma.prisma ||
-  new PrismaClient({
-    log: ['query'],
-  });
+export const getPrisma = () => {
+  if (!globalForPrisma.prisma) {
+    globalForPrisma.prisma = new PrismaClient({
+      log: ['query'],
+    });
+  }
+  return globalForPrisma.prisma;
+};
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
+if (process.env.NODE_ENV !== 'production') {
+  // Ensure it's initialized in dev so hot reloading doesn't create multiple instances
+  getPrisma();
+}

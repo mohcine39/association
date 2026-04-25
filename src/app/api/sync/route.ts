@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { scrapeFacebookEvents } from '@/lib/scraper';
-import { prisma } from '@/lib/prisma';
+import { getPrisma } from '@/lib/prisma';
 
 export const dynamic = 'force-dynamic';
 
@@ -21,6 +21,7 @@ export async function POST(request: Request) {
     let updatedCount = 0;
 
     for (const event of scrapedEvents) {
+      const prisma = getPrisma();
       // Check if event already exists by facebookUrl
       const existingEvent = await prisma.event.findUnique({
         where: { facebookUrl: event.facebookUrl },
@@ -56,6 +57,7 @@ export async function POST(request: Request) {
     }
 
     // Log the sync
+    const prisma = getPrisma();
     await prisma.syncLog.create({
       data: {
         status: 'success',
@@ -70,6 +72,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error('Sync error:', error);
     
+    const prisma = getPrisma();
     await prisma.syncLog.create({
       data: {
         status: 'failed',
