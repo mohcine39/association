@@ -1,9 +1,12 @@
-import { prisma } from '@/lib/prisma';
+import { getPrisma } from '@/lib/prisma';
 import { Calendar, MapPin, Share2, ExternalLink, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 async function getEvent(id: string) {
+  const prisma = getPrisma();
   return await prisma.event.findUnique({
     where: { id },
   });
