@@ -41,13 +41,13 @@ export default async function Home() {
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
                 جمعية أجيال كيغلان للتنمية والثقافة هي منظمة رائدة في مكناس، تعمل على تمكين الشباب وتعزيز الهوية الثقافية من خلال أنشطة متنوعة تشمل المخيمات، الرحلات، والورش التعليمية والرياضية.
               </p>
-              <div className="flex gap-8 py-6 border-y border-slate-100 dark:border-slate-800">
+              <div className="flex flex-col sm:flex-row gap-6 md:gap-8 py-6 border-y border-slate-100 dark:border-slate-800">
                 <div>
-                  <div className="text-3xl font-bold text-primary mb-1">0622-158485</div>
+                  <div className="text-2xl md:text-3xl font-bold text-primary mb-1">0622-158485</div>
                   <div className="text-sm text-slate-500">للتواصل المباشر</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-primary mb-1">ajyalmeknes@gmail.com</div>
+                  <div className="text-2xl md:text-3xl font-bold text-primary mb-1 break-all">ajyalmeknes@gmail.com</div>
                   <div className="text-sm text-slate-500">البريد الإلكتروني</div>
                 </div>
               </div>
@@ -72,7 +72,7 @@ export default async function Home() {
       {/* Events Section */}
       <section className="py-24 bg-slate-50 dark:bg-slate-950">
         <div className="container mx-auto px-6">
-          <div className="flex justify-between items-end mb-12">
+          <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-end gap-4 mb-12">
             <div>
               <span className="text-primary font-bold tracking-wider uppercase text-sm mb-4 block">برنامجنا</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">الفعاليات القادمة</h2>

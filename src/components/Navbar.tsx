@@ -25,7 +25,7 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold flex items-center gap-2">
+        <Link href="/" className="text-xl md:text-2xl font-bold flex items-center gap-2">
           <span className="text-slate-900 dark:text-white">أجيال كيغلان</span>
         </Link>
 

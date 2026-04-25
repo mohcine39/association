@@ -464,11 +464,11 @@ export default function AdminDashboard() {
                   </div>
                 </div>
 
-                <div className="flex gap-4">
+                <div className="flex flex-col-reverse md:flex-row gap-4">
                   <button 
                     type="submit"
                     disabled={isSaving}
-                    className="flex-1 flex items-center justify-center gap-2 py-5 bg-slate-950 text-white rounded-2xl font-black text-xl hover:bg-black hover:shadow-2xl hover:shadow-black/40 transition-all disabled:opacity-50 active:scale-[0.98] border border-white/10"
+                    className="flex-1 flex items-center justify-center gap-2 py-4 md:py-5 bg-slate-950 text-white rounded-2xl font-black text-lg md:text-xl hover:bg-black hover:shadow-2xl hover:shadow-black/40 transition-all disabled:opacity-50 active:scale-[0.98] border border-white/10"
                   >
                     {isSaving ? <Loader2 className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5" />}
                     حفظ الفعالية
@@ -477,7 +477,7 @@ export default function AdminDashboard() {
                     type="button"
                     onClick={() => setIsModalOpen(false)}
                     disabled={isSaving}
-                    className="px-8 py-4 bg-transparent text-slate-900 dark:text-slate-100 rounded-2xl font-bold border-2 border-slate-900 dark:border-slate-100 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900 transition-all"
+                    className="px-8 py-4 md:py-4 bg-transparent text-slate-900 dark:text-slate-100 rounded-2xl font-bold border-2 border-slate-900 dark:border-slate-100 hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-slate-900 transition-all"
                   >
                     إلغاء
                   </button>
@@ -512,7 +512,7 @@ export default function AdminDashboard() {
               <p className="text-slate-500 dark:text-slate-400 mb-8">
                 لا يمكن التراجع عن هذه العملية بعد الحذف.
               </p>
-              <div className="flex gap-4">
+              <div className="flex flex-col-reverse md:flex-row gap-4">
                 <button 
                   onClick={confirmDelete}
                   disabled={isDeleting}

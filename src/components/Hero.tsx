@@ -20,7 +20,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-bold mb-6"
+          className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 leading-tight"
         >
           جمعية أجيال كيغلان
         </motion.h1>
@@ -29,7 +29,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90"
+          className="text-lg sm:text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90 leading-relaxed"
         >
           جمعية تربوية، ثقافية، رياضية واجتماعية.
           نعمل من أجل التنمية الشاملة للشباب والمجتمع في مكناس.
@@ -43,13 +43,13 @@ export default function Hero() {
         >
           <Link 
             href="/events" 
-            className="px-8 py-3 bg-slate-900 hover:bg-black text-white rounded-full font-bold transition-all transform hover:scale-105 shadow-xl shadow-black/20 border border-white/10"
+            className="w-full sm:w-auto px-8 py-3 bg-slate-900 hover:bg-black text-white rounded-full font-bold transition-all transform hover:scale-105 shadow-xl shadow-black/20 border border-white/10 text-center"
           >
             استكشف الفعاليات
           </Link>
           <Link 
             href="#about" 
-            className="px-8 py-3 bg-slate-800 hover:bg-slate-900 text-white rounded-full font-bold transition-all border border-white/10 shadow-lg"
+            className="w-full sm:w-auto px-8 py-3 bg-slate-800 hover:bg-slate-900 text-white rounded-full font-bold transition-all border border-white/10 shadow-lg text-center"
           >
             اكتشف المزيد
           </Link>
