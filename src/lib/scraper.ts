@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer';
+// Puppeteer is dynamically imported to avoid build errors on Vercel
 
 export interface ScrapedEvent {
   title: string;
@@ -10,6 +10,14 @@ export interface ScrapedEvent {
 }
 
 export async function scrapeFacebookEvents(pageUrl: string): Promise<ScrapedEvent[]> {
+  let puppeteer;
+  try {
+    puppeteer = (await import('puppeteer')).default;
+  } catch (e) {
+    console.warn("Puppeteer is not available in this environment. Scraper disabled.");
+    return [];
+  }
+
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
