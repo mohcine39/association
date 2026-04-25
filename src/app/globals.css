@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --primary: #0f172a; /* Slate 900 (Black-ish) */
+  --primary-foreground: #ffffff;
+  --secondary: #065f46; /* Deep Emerald (Moved to secondary for accent) */
+  --secondary-foreground: #ffffff;
+  --accent: #f1f5f9;
+  --card: #ffffff;
+  --border: #e2e8f0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #020617;
+    --foreground: #f8fafc;
+    --primary: #f8fafc;
+    --secondary: #10b981;
+    --accent: #1e293b;
+    --card: #0f172a;
+    --border: #334155;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Cairo', 'Outfit', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.premium-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, #064e3b 100%);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  font-family: 'Cairo', 'Outfit', system-ui, sans-serif;
+}

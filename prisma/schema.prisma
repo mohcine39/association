@@ -1,0 +1,34 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  date        DateTime?
+  location    String?
+  imageUrl    String?
+  facebookUrl String?  @unique
+  isPublished Boolean  @default(true)
+  type        String   @default("scraped") // "scraped" or "manual"
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SyncLog {
+  id        String   @id @default(cuid())
+  status    String   // "success" or "failed"
+  message   String?
+  runAt     DateTime @default(now())
+}
