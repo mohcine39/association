@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { prisma } from '@/lib/prisma';
 
+export const dynamic = 'force-dynamic';
+
 async function getLatestEvents() {
   try {
     const events = await prisma.event.findMany({

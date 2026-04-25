@@ -1,6 +1,8 @@
 import EventCard from '@/components/EventCard';
 import { prisma } from '@/lib/prisma';
 
+export const dynamic = 'force-dynamic';
+
 async function getEvents() {
   try {
     const events = await prisma.event.findMany({
