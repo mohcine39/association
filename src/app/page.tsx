@@ -20,7 +20,6 @@ async function getLatestEvents() {
   }
 }
 
-export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   const events = await getLatestEvents();
